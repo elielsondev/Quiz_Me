@@ -51,10 +51,12 @@ console.log("Script loaded successfully!");
     // - Verificar respostas corretas e calcular pontuação.
     // - Exibir pontuação final e gabarito no console.
     console.log(`Sua pontuação final é: ${score}/100`);
+
     console.log('Gabarito:');
+    
     for (let i = 0; i < quizzes.length; i += 1) {
-        const [question, , correctAnswer] = quizzes[i];
-        console.log(` ${question}: ${correctAnswer}`);
+        const [question, options , correctAnswer] = quizzes[i];
+        console.log(` ${question} ${options}: Resposta "${correctAnswer}"`);
     }
 
     // - Exibir pontuação final via alert.
