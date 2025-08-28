@@ -1,5 +1,14 @@
 console.log("Script loaded successfully!");
 
+let userName = prompt('Digite seu nome:');
+
+if (!userName) {
+    userName = 'Usuário Anônimo';
+};
+
+alert(`Bem-vindo(a), ${userName}! Vamos começar o quiz.`);
+
+
 // Projeto 5 – Quiz (Questionário)
 
 // Criar um quiz de múltipla escolha com perguntas de programação.
@@ -60,5 +69,21 @@ console.log("Script loaded successfully!");
     }
 
     // - Exibir pontuação final via alert.
-    alert(`Quiz finalizado! Sua pontuação final é: ${score}/100`);
+    alert(`Quiz finalizado! ${userName} sua pontuação final é: ${score}/100`);
     alert('Confira o gabarito no console.');
+
+    // - Adicionar feedback baseado na pontuação.
+    switch (true) {
+        case score === 100:
+            console.log(`Parabéns! ${userName} você é um(a) expert em programação!`);
+            break;
+        case score >= 75:
+            console.log(`Muito bem! ${userName} Você tem um ótimo conhecimento em programação!`);
+            break;
+        case score >= 50:
+            console.log(`Bom esforço! ${userName} Você tem um conhecimento razoável em programação.`);
+            break;
+        default:
+            console.log(`Continue praticando! ${userName} Você precisa melhorar seu conhecimento em programação. A programação é uma jornada contínua de aprendizado.`);
+            break;
+    };
