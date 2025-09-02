@@ -87,3 +87,19 @@ alert(`Bem-vindo(a), ${userName}! Vamos começar o quiz.`);
             console.log(`Continue praticando! ${userName} Você precisa melhorar seu conhecimento em programação. A programação é uma jornada contínua de aprendizado.`);
             break;
     };
+
+    // Ranking de jogadores no localStorage.
+    const ranking = JSON.parse(localStorage.getItem('ranking')) || [];
+    ranking.push([userName, score]);
+    localStorage.setItem('ranking', JSON.stringify(ranking));
+
+    // Ordenar ranking por pontuação (maior para menor).
+
+    ranking.sort((a, b) => b.score - a.score);
+
+    console.log('Ranking de Jogadores:');
+    
+    for (let i = 0; i < ranking.length; i += 1) {
+        const [name, score] = ranking[i];
+        console.log(`${i + 1}. ${name} - ${score}/100`);
+    };
